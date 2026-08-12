@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: "Project not found" };
+    return { title: "프로젝트를 찾을 수 없습니다" };
   }
 
   return {

@@ -9,8 +9,8 @@ export function Intro() {
       <p className="intro__description">{siteProfile.description}</p>
       <p className="intro__areas" aria-label="주요 전문 영역">{siteProfile.coreAreas.join(" · ")}</p>
       <div className="intro__links">
-        <ExternalLink className="text-link" href={siteProfile.resumeUrl}>Resume</ExternalLink>
-        <ExternalLink className="text-link" href={siteProfile.emailUrl}>Email</ExternalLink>
+        <ExternalLink className="text-link" href={siteProfile.resumeUrl}>이력서</ExternalLink>
+        <ExternalLink className="text-link" href={siteProfile.emailUrl}>이메일</ExternalLink>
       </div>
     </section>
   );

@@ -10,8 +10,8 @@ export function Header() {
         {siteProfile.name}
       </Link>
       <nav className="site-nav" aria-label="주요 탐색">
-        <Link href="/#work">Work</Link>
-        <ExternalLink href={siteProfile.resumeUrl}>Resume</ExternalLink>
+        <Link href="/#work">프로젝트</Link>
+        <ExternalLink href={siteProfile.resumeUrl}>이력서</ExternalLink>
         <ExternalLink href={siteProfile.githubUrl}>GitHub</ExternalLink>
         <ThemeToggle />
       </nav>

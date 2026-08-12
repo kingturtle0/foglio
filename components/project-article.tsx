@@ -6,17 +6,17 @@ import { Diagram } from "./diagram";
 export function ProjectArticle({ project, nextProject }: { project: Project; nextProject: Project }) {
   return (
     <article className="project-article">
-      <Link className="back-link" href="/#work"><span aria-hidden="true">←</span> Selected Work</Link>
+      <Link className="back-link" href="/#work"><span aria-hidden="true">←</span> 주요 프로젝트</Link>
       <header className="article-header">
         <p className="article-header__year">{project.year}</p>
         <h1>{project.title}</h1>
         <p className="article-header__summary">{project.summary}</p>
       </header>
       <dl className="project-meta">
-        {project.period ? <div><dt>Period</dt><dd>{project.period}</dd></div> : null}
-        {project.role ? <div><dt>Role</dt><dd>{project.role}</dd></div> : null}
-        {project.scope ? <div><dt>Scope</dt><dd>{project.scope}</dd></div> : null}
-        <div><dt>Tech</dt><dd>{project.technologies.join(", ")}</dd></div>
+        {project.period ? <div><dt>기간</dt><dd>{project.period}</dd></div> : null}
+        {project.role ? <div><dt>역할</dt><dd>{project.role}</dd></div> : null}
+        {project.scope ? <div><dt>범위</dt><dd>{project.scope}</dd></div> : null}
+        <div><dt>기술</dt><dd>{project.technologies.join(", ")}</dd></div>
       </dl>
       <div className="article-sections">
         {project.sections.map((section, index) => (
@@ -31,7 +31,7 @@ export function ProjectArticle({ project, nextProject }: { project: Project; nex
           </section>
         ))}
       </div>
-      <nav className="next-project" aria-label="다음 프로젝트"><span>Next Project</span><Link href={`/work/${nextProject.slug}`}>{nextProject.title} <span aria-hidden="true">→</span></Link></nav>
+      <nav className="next-project" aria-label="다음 프로젝트"><span>다음 프로젝트</span><Link href={`/work/${nextProject.slug}`}>{nextProject.title} <span aria-hidden="true">→</span></Link></nav>
     </article>
   );
 }

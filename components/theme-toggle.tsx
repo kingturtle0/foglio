@@ -34,7 +34,7 @@ export function ThemeToggle() {
       <span aria-hidden="true" className="theme-toggle__mark">
         {theme === "light" ? "◐" : "◑"}
       </span>
-      <span className="theme-toggle__text">{theme === "light" ? "Dark" : "Light"}</span>
+      <span className="theme-toggle__text">{theme === "light" ? "다크" : "라이트"}</span>
     </button>
   );
 }

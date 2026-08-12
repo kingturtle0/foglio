@@ -23,15 +23,13 @@ const themeScript = `
 
 export const metadata: Metadata = {
   title: {
-    default: "Youngjae — Bioinformatics Developer",
-    template: "%s — Youngjae",
+    default: "영재 — 바이오인포매틱스 개발자",
+    template: "%s — 영재",
   },
-  description:
-    "Bioinformatics, scientific software, and production workflow projects.",
+  description: "바이오인포매틱스, 과학 소프트웨어, 운영 워크플로 프로젝트를 소개합니다.",
   openGraph: {
-    title: "Youngjae — Bioinformatics Developer",
-    description:
-      "Bioinformatics, scientific software, and production workflow projects.",
+    title: "영재 — 바이오인포매틱스 개발자",
+    description: "바이오인포매틱스, 과학 소프트웨어, 운영 워크플로 프로젝트를 소개합니다.",
     type: "website",
   },
 };
