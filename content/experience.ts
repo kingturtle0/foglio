@@ -2,9 +2,9 @@ import type { ExperienceEntry } from "./types";
 
 export const experiences: ExperienceEntry[] = [
   {
-    period: "2024 — 현재",
-    company: "회사명 / 비공개 자리표시자",
-    role: "바이오인포매틱스 개발자",
-    description: "반복 가능한 생물학 데이터 분석을 위한 과학 분석 시스템, 워크플로 자동화, 운영 인프라를 개발합니다.",
+    period: "2024.03 – Present",
+    company: "SD Biosensor",
+    role: "Bioinformatics Developer",
+    description: "바이오인포매틱스 도메인에서 분석 소프트웨어와 사내 웹 서비스를 개발하고, 대규모 데이터 처리, 머신러닝 기반 분석, 업무 자동화 및 Kubernetes 기반 운영 환경의 유지보수와 개선을 수행하고 있습니다.",
   },
 ];

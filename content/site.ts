@@ -2,9 +2,9 @@ import type { SiteProfile } from "./types";
 
 export const siteProfile: SiteProfile = {
   name: "영재",
-  positioning: "신뢰할 수 있는 과학 소프트웨어를 만드는 바이오인포매틱스 개발자.",
-  description: "생물학 데이터와 검색 시스템, 운영 워크플로를 다룹니다. 탐색 단계의 분석을 누구나 이해하고 운영하며 지속해서 개선할 수 있는 소프트웨어로 발전시키는 일에 집중합니다.",
-  coreAreas: ["바이오인포매틱스", "과학 소프트웨어", "데이터·워크플로", "ML·AI", "운영 시스템"],
+  positioning: "Software Engineer",
+  description: "대용량 데이터 처리와 분석 워크플로 자동화부터 머신러닝, AI 기반 서비스 개발 및 운영까지 다양한 소프트웨어 엔지니어링 업무를 수행해 왔습니다. 주로 바이오인포매틱스 도메인에서 일하며 데이터 처리 성능을 개선하고, 복잡한 분석 요구사항을 실제 운영 가능한 소프트웨어 시스템으로 구현해 왔습니다.",
+  coreAreas: ["Backend & Software Engineering", "Data Processing & Workflow Automation", "Machine Learning & AI Applications", "Infrastructure & Operations"],
   emailUrl: "mailto:hello@example.com",
   githubUrl: "https://github.com/",
   linkedinUrl: "https://www.linkedin.com/",
