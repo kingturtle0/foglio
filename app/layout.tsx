@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { siteProfile } from "@/content/site";
 import "./globals.css";
 
 const pretendard = localFont({
@@ -23,13 +24,13 @@ const themeScript = `
 
 export const metadata: Metadata = {
   title: {
-    default: "영재 — 바이오인포매틱스 개발자",
+    default: `${siteProfile.name} — ${siteProfile.positioning}`,
     template: "%s — 영재",
   },
-  description: "바이오인포매틱스, 과학 소프트웨어, 운영 워크플로 프로젝트를 소개합니다.",
+  description: siteProfile.description,
   openGraph: {
-    title: "영재 — 바이오인포매틱스 개발자",
-    description: "바이오인포매틱스, 과학 소프트웨어, 운영 워크플로 프로젝트를 소개합니다.",
+    title: `${siteProfile.name} — ${siteProfile.positioning}`,
+    description: siteProfile.description,
     type: "website",
   },
 };

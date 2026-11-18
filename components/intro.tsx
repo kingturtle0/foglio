@@ -8,10 +8,12 @@ export function Intro() {
       <h1 id="intro-title">{siteProfile.positioning}</h1>
       <p className="intro__description">{siteProfile.description}</p>
       <p className="intro__areas" aria-label="주요 전문 영역">{siteProfile.coreAreas.join(" · ")}</p>
-      <div className="intro__links">
-        <ExternalLink className="text-link" href={siteProfile.resumeUrl}>이력서</ExternalLink>
-        <ExternalLink className="text-link" href={siteProfile.emailUrl}>이메일</ExternalLink>
-      </div>
+      {(siteProfile.resumeUrl || siteProfile.emailUrl) && (
+        <div className="intro__links">
+          {siteProfile.resumeUrl && <ExternalLink className="text-link" href={siteProfile.resumeUrl}>이력서</ExternalLink>}
+          {siteProfile.emailUrl && <ExternalLink className="text-link" href={siteProfile.emailUrl}>이메일</ExternalLink>}
+        </div>
+      )}
     </section>
   );
 }
