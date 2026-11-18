@@ -13,14 +13,14 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "bioinformatics-workflow-automation", title: "바이오인포매틱스 분석 워크플로 자동화", year: "2024",
-    summary: "반복적으로 수행하던 분석 업무를 데이터 수집부터 분석 실행, 결과 저장, 보고서 생성 및 알림까지 연결된 자동화 워크플로로 전환했습니다.",
-    technologies: ["Python", "Kubernetes", "Data Pipeline", "Automation"], period: "기간 자리표시자", role: "워크플로 개발", scope: "예약, 실행, 저장, 보고", featured: true, featuredOrder: 2,
+    slug: "bioinformatics-workflow-automation", title: "바이오인포매틱스 분석 워크플로 자동화", year: "2026",
+    summary: "정기적으로 반복되던 바이오인포매틱스 모니터링 업무를 데이터 수집부터 분석 실행, 결과 저장, 보고서 생성과 알림까지 연결된 자동화 워크플로로 전환했습니다.",
+    technologies: ["Linux", "Kubernetes CronJob", "SSH/SCP", "Database", "Excel Reporting"], period: "기간 자리표시자", role: "분석 워크플로 자동화 개발 및 Kubernetes 기반 분석 운영", scope: "수집, 분석 실행, 결과 전달", featured: true, featuredOrder: 2,
     sections: [
-      { id: "context", title: "맥락", paragraphs: ["반복 분석에는 스크립트를 예약하는 일보다 많은 요소가 필요합니다. 입력 데이터가 예측 가능한 방식으로 도착하고, 작업 실패가 드러나며, 결과를 저장하고 검토하는 경로가 명확해야 합니다."] },
-      { id: "workflow", title: "워크플로 경계", paragraphs: ["전송, 실행, 분석, 저장, 알림을 관찰 가능한 작은 경계로 나눠 워크플로를 설명합니다. 포트폴리오 본문을 인프라 문서로 만들지 않으면서 운영 책임을 분명하게 보여주기 위한 구조입니다."] },
-      { id: "implementation", title: "구현 메모", paragraphs: ["예약된 Kubernetes 작업을 실행 경계로 사용하되 도메인 분석은 클러스터에 종속된 관심사와 분리합니다. 상태와 결과 처리 방식은 나중에 확인된 프로젝트 세부 내용으로 교체할 수 있도록 명시적으로 구성합니다."] },
-      { id: "outcome", title: "결과", paragraphs: ["이 스켈레톤에는 확인되지 않은 운영 지표나 소유권 주장을 넣지 않았습니다. 현재 섹션은 본문의 흐름을 검증하기 위한 것으로, 추후 승인된 근거 기반 콘텐츠로 교체합니다."] },
+      { id: "context", title: "문제 — 반복되는 정기 분석 업무", paragraphs: ["바이오인포매틱스 분석 환경에서는 여러 종류의 변이 모니터링 작업을 정기적으로 수행해야 했습니다.", "2024~2025년에는 이러한 분석이 담당자의 반복적인 연구지원 업무로 수행됐습니다. 분석을 실행하는 것뿐 아니라 데이터를 확보하고, 결과를 정리해 후속 업무에 전달하는 과정도 필요했습니다.", "이 프로젝트에서는 새로운 분석 알고리즘을 개발하는 것보다 반복되는 분석과 결과 처리 과정을 하나의 자동화 워크플로로 연결하는 것에 집중했습니다."] },
+      { id: "workflow", title: "자동화 — 분석부터 결과 전달까지", paragraphs: ["2026년에는 정기 분석 업무를 데이터 수집부터 결과 전달까지 이어지는 자동화 워크플로로 전환했습니다."], bullets: ["데이터 수집 및 전달: 외부 데이터를 다운로드하고, 스케줄링 및 SSH/SCP 기반 전송을 통해 분석 환경으로 전달합니다.", "분석 실행: Kubernetes CronJob을 활용하여 여러 바이오인포매틱스 분석 워크플로를 실행합니다.", "결과 저장: 분석 결과를 데이터베이스에 저장합니다.", "보고서 생성: 분석 결과를 Excel 형식의 보고서로 생성합니다.", "후속 처리: 실험적 검증에 필요한 대상 데이터를 처리합니다.", "결과 알림: 사용자와 관리자에게 이메일 알림을 전달합니다."], diagram: { id: "workflow-automation-flow", caption: "자동화 워크플로 흐름", nodes: [{ label: "외부 데이터 수집", description: "데이터 확보" }, { label: "스케줄링 및 SSH/SCP 전송", description: "분석 환경 전달" }, { label: "Kubernetes CronJob", description: "자동 분석 실행" }, { label: "바이오인포매틱스 분석", description: "워크플로 실행", key: true }, { label: "DB 저장 및 Excel 보고서", description: "결과 정리" }, { label: "후속 데이터 처리 및 이메일 알림", description: "결과 전달" }] } },
+      { id: "validation", title: "안정성 — 입력 데이터 검증", paragraphs: ["정기적으로 외부 데이터를 수집하는 워크플로에서는 입력 데이터가 예상과 다른 상태로 들어올 가능성도 고려해야 했습니다.", "이를 위해 다운로드한 데이터의 크기가 평소와 크게 달라지는 경우 이상 가능성을 확인하는 검증 로직을 포함했습니다.", "이 검증은 자동화된 분석이 입력 데이터의 상태를 확인할 수 있도록 하는 방어 장치입니다."] },
+      { id: "outcome", title: "결과 — 반복 업무의 워크플로 전환", paragraphs: ["2024~2025년에 담당자가 반복 수행하던 정기 모니터링 업무를 2026년에 자동화된 워크플로로 전환했습니다.", "분석 대상 데이터의 수집, Kubernetes 기반 분석 실행, 결과 저장, Excel 보고서 생성, 후속 데이터 처리 및 사용자 알림이 연결된 형태로 구성됐습니다.", "이를 통해 반복 분석 업무와 결과 처리 과정의 자동화가 이루어졌습니다."] },
     ],
   },
   {
