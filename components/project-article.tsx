@@ -8,7 +8,7 @@ export function ProjectArticle({ project, nextProject }: { project: Project; nex
     <article className="project-article">
       <Link className="back-link" href="/#work"><span aria-hidden="true">←</span> 주요 프로젝트</Link>
       <header className="article-header">
-        <p className="article-header__year">{project.year}</p>
+        {project.year ? <p className="article-header__year">{project.year}</p> : null}
         <h1>{project.title}</h1>
         <p className="article-header__summary">{project.summary}</p>
       </header>

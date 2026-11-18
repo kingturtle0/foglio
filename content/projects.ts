@@ -2,9 +2,9 @@ import type { Project } from "./types";
 
 export const projects: Project[] = [
   {
-    slug: "large-scale-sequence-analysis", title: "대규모 염기서열 데이터 처리 최적화", year: "2025",
+    slug: "large-scale-sequence-analysis", title: "대규모 염기서열 데이터 처리 최적화",
     summary: "대규모 염기서열 분석에서 발생한 메모리 부족 문제를 해결하기 위해 데이터 표현 방식과 메모리 접근 구조를 개선한 프로젝트입니다.",
-    technologies: ["Go", "4bit Encoding", "mmap", "Memory Profiling", "Linux", "Kubernetes"], period: "기간 자리표시자", role: "데이터 처리 및 메모리 최적화 방안 분석, 구현, 검증", scope: "데이터 표현, 메모리 접근, 실행 환경", featured: true, featuredOrder: 1,
+    technologies: ["Go", "4bit Encoding", "mmap", "Memory Profiling", "Linux", "Kubernetes"], role: "데이터 처리 및 메모리 최적화 방안 분석, 구현, 검증", scope: "데이터 표현, 메모리 접근, 실행 환경", featured: true, featuredOrder: 1,
     sections: [
       { id: "problem", title: "문제", paragraphs: ["온프레미스 환경에서 대규모 nucleotide sequence를 처리하는 분석 시스템을 운영하고 있었습니다.", "기존 구현은 염기서열 데이터를 문자열 중심으로 처리했으며, 분석 규모가 커질수록 메모리 사용량이 크게 증가했습니다. 고메모리 컴퓨팅 환경에서도 OOM이 발생하거나 분석 실행에 한계가 생기는 상황이었습니다.", "단순히 서버 메모리를 늘리는 방식보다는 데이터가 메모리에 표현되고 접근되는 구조 자체를 검토할 필요가 있었습니다."] },
       { id: "investigation", title: "원인 분석", paragraphs: ["메모리 사용량을 줄이기 위해 문제를 여러 계층으로 나누어 조사했습니다.", "먼저 염기서열을 문자열로 표현하는 방식의 메모리 비용을 검토하고, 2bit 및 4bit encoding과 압축 방식을 비교했습니다. 데이터를 한 번에 처리하는 방식과 chunk 또는 streaming 기반 처리 방식도 검토했습니다.", "이와 함께 worker 수에 따른 자원 사용, Go의 GC 동작, 애플리케이션 프로세스의 메모리 사용량을 조사했습니다. 외부 분석 명령인 blastdbcmd가 메모리 사용에 미치는 영향도 별도로 테스트했습니다.", "이를 통해 데이터 표현과 접근 방식뿐 아니라 실행 과정에서 발생할 수 있는 메모리 사용 요인을 구분해 검토했습니다."] },
