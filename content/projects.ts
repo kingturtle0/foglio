@@ -24,14 +24,14 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "document-retrieval-system", title: "내부 문서 검색 및 RAG 시스템", year: "2026",
-    summary: "다양한 내부 문서를 검색할 수 있도록 임베딩과 BM25를 결합한 검색 구조를 구현하고, 문서 변경에 대응하는 인덱싱 방식을 개선했습니다.",
-    technologies: ["Python", "Qdrant", "BM25", "RAG"], period: "기간 자리표시자", role: "개발 및 기술 검토", scope: "문서 수집, 인덱싱, 검색", featured: true, featuredOrder: 3,
+    slug: "document-retrieval-system", title: "사내 문서 검색 시스템 개발", year: "2026",
+    summary: "PDF와 다양한 Office 문서를 대상으로 검색 시스템을 개발했습니다. 문서 파싱과 청크 단위 인덱싱, Qdrant 기반 벡터 검색 및 BM25 키워드 검색을 다뤘으며, 업로드 이벤트 기반 선택적 재인덱싱 구조로 개선하는 작업을 진행했습니다.",
+    technologies: ["OpenAI API", "Qdrant", "BM25", "Document Parsing", "Embedding", "Docker"], role: "문서 검색 시스템 개발 및 인덱싱 구조 개선 참여", scope: "문서 파싱, 인덱싱, 검색", featured: true, featuredOrder: 3,
     sections: [
-      { id: "context", title: "맥락과 문제", paragraphs: ["문서 검색 품질은 임베딩 모델 하나만으로 결정되지 않습니다. 원본 자료가 바뀌더라도 문서 수집, 청킹, 메타데이터, 업데이트 경로를 이해할 수 있어야 합니다.", "이 임시 사례 연구는 각 단계를 명확히 유지하기 위해 검토해야 할 엔지니어링 질문에 집중합니다. 실제 운영 성과나 측정된 개선 수치를 주장하지 않습니다."] },
-      { id: "retrieval-design", title: "검색 설계", paragraphs: ["키워드 검색과 벡터 검색의 후보군을 각각 점검한 뒤 결합하는 흐름을 가정했습니다. 하나의 점수 뒤에 동작을 숨기지 않고 각 단계를 독립적으로 평가할 수 있도록 구성합니다."], diagram: { id: "retrieval-flow", caption: "검색 흐름 자리표시자", nodes: [{ label: "문서", description: "수집" }, { label: "인덱스", description: "청크·메타데이터" }, { label: "하이브리드 검색", description: "벡터·BM25", key: true }, { label: "정렬된 문맥", description: "검토" }] } },
-      { id: "implementation", title: "구현", paragraphs: ["문서가 바뀔 때마다 전체를 다시 만드는 대신 인덱스 변경을 명시적인 이벤트로 다룹니다. 원본 파싱, 청크 생성, 저장, 검색 조율의 구현 경계를 분리합니다."], bullets: ["파이프라인 전체에서 문서 식별자와 청크 출처를 유지합니다.", "키워드 검색과 벡터 검색 후보를 별도로 점검할 수 있게 합니다.", "증분 인덱싱 동작을 관찰하고 교체할 수 있게 구성합니다."] },
-      { id: "outcome", title: "결과", paragraphs: ["현재 내용은 구조 검증을 위한 자리표시자입니다. 화면과 서술 구조를 검토한 뒤, 확인된 평가 기준과 프로젝트별 결과로 교체할 예정입니다."] },
+      { id: "context", title: "배경 — 다양한 문서를 검색 가능한 데이터로", paragraphs: ["사내에서 사용하는 여러 형식의 문서를 검색하고, 문서 내용을 AI 질의에 활용할 수 있는 시스템을 개발했습니다.", "검색 대상에는 PDF뿐 아니라 Excel, PowerPoint, Word 계열 문서가 포함됐습니다.", "서로 다른 문서 형식을 검색에 활용하기 위해 문서 내용을 처리하고, 검색 인덱스를 구성하는 작업이 필요했습니다."] },
+      { id: "implementation", title: "구현 — 문서 처리와 검색", paragraphs: ["문서 처리 과정에서는 PDF, XLSX, XLSM, PPTX, DOCX, DOCM 형식을 대상으로 파싱과 청크 단위 인덱싱을 다뤘습니다.", "검색에는 임베딩과 Qdrant를 활용한 벡터 검색, BM25 기반 키워드 검색을 사용했습니다.", "벡터 검색과 키워드 검색 구성 요소를 함께 활용하는 문서 검색 구조를 개발했으며, OpenAI API를 활용하는 AI 질의 시스템 개발에도 참여했습니다."], diagram: { id: "document-retrieval-concept", caption: "문서 검색 구성 개념", nodes: [{ label: "PDF / Office Documents" }, { label: "Parsing / Chunking / Indexing" }, { label: "Qdrant Vector Search + BM25 Lexical Search", key: true }] } },
+      { id: "reindexing", title: "개선 — 선택적 재인덱싱", paragraphs: ["기존 문서 인덱싱에는 주기적으로 변경 여부를 확인하는 polling 방식이 사용되고 있었습니다.", "이를 파일 업로드 이벤트를 기준으로 변경된 문서만 다시 인덱싱하는 구조로 개선하는 작업을 진행했습니다.", "2026년 8월 기준으로 선택적 재인덱싱 구조의 개선이 진행 중이었으며, 기존 사내 콘텐츠 관리 시스템의 업로드 이벤트와 인덱싱 API를 최종 연결하는 작업은 남아 있었습니다."] },
+      { id: "outcome", title: "결과 — 검색 기반 구성과 시스템 연동", paragraphs: ["다양한 문서 형식을 대상으로 문서 파싱과 인덱싱을 다루고, Qdrant 벡터 검색과 BM25 키워드 검색을 활용하는 검색 구조를 개발했습니다.", "이와 함께 polling 기반 문서 변경 확인을 이벤트 기반 선택적 재인덱싱 구조로 전환하는 개선 작업을 진행했습니다.", "이 프로젝트에서는 문서를 검색 가능한 데이터로 처리하는 과정뿐 아니라 문서 변경과 검색 인덱스 갱신을 연결하는 문제도 다뤘습니다."] },
     ],
   },
 ];
